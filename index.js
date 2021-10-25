@@ -7,10 +7,11 @@ app.get('/', function (req, res) {
 });
 
 app.post('/slack/test-api', function (req, res) {
-  console.log('req', req);
-  console.log('body', req.body);
-  console.log('challenge', req.body.challenge);
-  res.send('done');
+  try {
+    res.status(200).send(req.body.challenge);
+  } catch (error) {
+    res.status(500).send('Incorrect parameters');
+  }
 });
 
 module.exports.handler = serverless(app);
