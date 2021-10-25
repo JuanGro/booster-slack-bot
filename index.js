@@ -6,10 +6,11 @@ app.get('/', function (req, res) {
   res.send('Hello World!');
 });
 
-app.get('/slack/test-api', function (req, res) {
-  const { rawBody } = req;
-  const { challenge } = rawBody;
-  res.send(challenge);
+app.post('/slack/test-api', function (req, res) {
+  console.log('req', req);
+  console.log('body', req.body);
+  console.log('challenge', req.body.challenge);
+  res.send('done');
 });
 
 module.exports.handler = serverless(app);
