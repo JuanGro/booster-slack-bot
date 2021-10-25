@@ -42,7 +42,7 @@ docker-compose up --build
 
 ### Manual
 
-**First, you must have installed [Node](https://nodejs.org/es/) version `15`.**
+**First, you must have installed [Node](https://nodejs.org/es/) version `14`.**
 
 Then, install the dependencies using:
 
@@ -66,4 +66,6 @@ npm test
 
 ## Deployment
 
-[Production api](https://h7elalq8yi.execute-api.us-east-1.amazonaws.com/v1)
+The app is deployed in [AWS](https://aws.amazon.com) using [serverless](https://www.serverless.com).
+
+[Go to api](https://0ge7zy7kp8.execute-api.us-east-1.amazonaws.com/dev)
