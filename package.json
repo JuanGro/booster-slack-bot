@@ -1,6 +1,24 @@
 {
+  "name": "booster-slack-bot",
+  "version": "1.0.0",
+  "description": "Booster Slack Bot",
+  "main": "index.js",
+  "scripts": {
+    "start": "serverless offline",
+    "test": "echo test",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "keywords": [],
+  "author": "JuanGro",
+  "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
     "serverless-http": "^2.7.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.1.0",
+    "serverless": "^2.64.1",
+    "serverless-offline": "^8.2.0"
   }
 }
