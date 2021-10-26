@@ -4,10 +4,35 @@ _This repository contains a [Node](https://nodejs.org) app to implement a slack 
 
 ## Index
 
+* [Instructions](#instructions)
 * [Technologies](#technologies)
 * [Architecture](#architecture)
 * [Usage](#usage)
 * [Deployment](#deployment)
+
+## Instructions
+
+To use this chatbot, please enter to my personal slack space, then you can interact with the bot sending the next messages in the #slack-bot channel:
+
+```
+Hello @Booster Slack Bot
+```
+
+```
+VIN 1G8DC18H4CF114023
+```
+
+```
+Make honda 
+```
+
+```
+Hello
+```
+
+```
+Bye
+```
 
 ## Technologies
 
@@ -26,7 +51,7 @@ The architecture was build with a [microservice](https://microservices.io) in [N
 
 ## Usage
 
-To execute this [Node](https://nodejs.org) API, you can use [serverless](https://www.serverless.com).
+To execute this [Node](https://nodejs.org) API locally, you can use [serverless offline](https://www.serverless.com/plugins/serverless-offline).
 
 **First, you must have installed [Node](https://nodejs.org/es/) version `14`.**
 
