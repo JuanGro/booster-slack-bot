@@ -14,21 +14,25 @@ _This repository contains a [Node](https://nodejs.org) app to implement a slack 
 
 To use this chatbot, please enter to my personal slack space, then you can interact with the bot sending the next messages in the #slack-bot channel:
 
+To say hello
+
 ```
 Hello @Booster Slack Bot
 ```
+
+To get a vehicle
 
 ```
 VIN 1G8DC18H4CF114023
 ```
 
+To get all the models for the make
+
 ```
 Make honda 
 ```
 
-```
-Hello
-```
+To say bye
 
 ```
 Bye
