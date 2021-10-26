@@ -1,3 +1,7 @@
+const { get } = require("axios");
+
+const vehiclesAPI = 'https://vpic.nhtsa.dot.gov/api';
+
 const isVINValid = (vin) => {
     if (!vin) {
         return false;
@@ -12,7 +16,7 @@ const isVINValid = (vin) => {
 }
 
 const getVehicleByVIN = async (vin) => {
-    const { data } = await axios.get(`https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVin/${vin}?format=json`);
+    const { data } = await get(`${vehiclesAPI}/vehicles/DecodeVin/${vin}?format=json`);
     const { Results } = data;
     const vehicle = Results.filter((obj) => obj.Variable === 'Make'
     || obj.Variable === 'Model'
@@ -26,7 +30,16 @@ const getVehicleByVIN = async (vin) => {
     return finalMessage;
 }
 
+const getModelsForMake = async (make) => {
+    const { data } = await get(`${vehiclesAPI}/vehicles/getmodelsformake/${make}?format=json`);
+    const { Results } = data;
+    let finalMessage = 'There are the models for this make :car:\n';
+    Results.map((obj) => finalMessage+= `${obj.Model_Name}\n`);
+    return finalMessage;
+}
+
 module.exports = {
     isVINValid,
     getVehicleByVIN,
+    getModelsForMake,
 };

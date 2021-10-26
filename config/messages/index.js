@@ -6,6 +6,12 @@ const incorrectVINMessage = `
     without O, I and Q letters.
 `;
 
+const incorrectMakeMessage = `
+    Please write the Make after a space.
+    E.g. Make honda
+`;
+
 module.exports = {
     incorrectVINMessage,
+    incorrectMakeMessage,
 };
