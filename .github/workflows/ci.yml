@@ -15,6 +15,11 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - name: Create env file
+      run: |
+        touch .env
+        echo SLACK_SIGNING_SECRET=${{ secrets.SLACK_SIGNING_SECRET }} >> .env
+        echo SLACK_BOT_TOKEN=${{ secrets.SLACK_BOT_TOKEN }} >> .env
     - name: Install NPM dependencies
       run: npm ci
     - name: Check ESLint
