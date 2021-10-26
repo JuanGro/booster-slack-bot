@@ -7,9 +7,6 @@ _This repository contains a [Node](https://nodejs.org) app to implement a slack 
 * [Technologies](#technologies)
 * [Architecture](#architecture)
 * [Usage](#usage)
-    * [Docker-compose](#docker-compose)
-    * [Manual](#manual)
-* [Tests](#tests)
 * [Deployment](#deployment)
 
 ## Technologies
@@ -21,26 +18,15 @@ _This repository contains a [Node](https://nodejs.org) app to implement a slack 
 [![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?logo=docker&logoColor=white)](https://www.docker.com)
 [![AWS](https://img.shields.io/badge/Amazon_AWS-%23FF9900?logo=amazon-aws&logoColor=white)](https://aws.amazon.com)
 [![Github](https://img.shields.io/badge/github-%23121011.svg?logo=github&logoColor=white)](https://github.com)
+[![Slack](https://img.shields.io/badge/Slack-4A154B?logo=slack&logoColor=white)](https://slack.com)
 
 ## Architecture
 
-[Architecture Diagram](#)
+The architecture was build with a [microservice](https://microservices.io) in [Node](https://nodejs.org) and deployed in a [AWS Lambda](https://aws.amazon.com/lambda/), it works with [slack](https://slack.com) when the user mentions the bot or interacts with it. Also, this microservice connects with the [Vehicle API](https://vpic.nhtsa.dot.gov/api/Home) to request the vehicles information.
 
 ## Usage
 
-To execute this [Node](https://nodejs.org) API, you have two alternatives, use [Docker compose](https://docs.docker.com/compose/) or run the code manually.
-
-In both cases you must create a file called `.env` to define all the variables needed to run the app. You can see an example of this file in `.env.example`.
-
-### [Docker-compose](https://docs.docker.com/compose/)
-
-To run the container, you must have installed [docker](https://www.docker.com) in your machine. Only execute:
-
-```bash
-docker-compose up --build
-```
-
-### Manual
+To execute this [Node](https://nodejs.org) API, you can use [serverless](https://www.serverless.com).
 
 **First, you must have installed [Node](https://nodejs.org/es/) version `14`.**
 
@@ -56,16 +42,8 @@ Finally, use this command to run the app:
 npm start
 ```
 
-## Tests
-
-To run the tests locally follow the above [manual usage](#manual) and then execute:
-
-```bash
-npm test
-```
-
 ## Deployment
 
-The app is deployed in [AWS](https://aws.amazon.com) using [serverless](https://www.serverless.com).
+The app is deployed in [AWS](https://aws.amazon.com) using [serverless](https://www.serverless.com) with [Github Actions](https://github.com/features/actions).
 
 [Go to API](https://ss49p1awi3.execute-api.us-east-1.amazonaws.com/dev/slack/events)
