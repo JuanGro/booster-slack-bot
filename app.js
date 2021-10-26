@@ -1,6 +1,8 @@
 const { App, AwsLambdaReceiver } = require('@slack/bolt');
 require('dotenv').config()
 
+const axios = require('axios');
+
 // Initialize your custom receiver
 const awsLambdaReceiver = new AwsLambdaReceiver({
   signingSecret: process.env.SLACK_SIGNING_SECRET,
@@ -24,7 +26,19 @@ app.message('hello', async ({ message, say }) => say(`Hello <@${message.user}> :
 app.message('goodbye', async ({ message, say }) => say(`Bye, <@${message.user}> :wave:`));
 
 app.message('VIN', async ({ say }) => {
-  await say(`I'm receiving a VIN :tada:`);
+  const vin = '5UXWX7C5*BA';
+  const { data } = await axios.get(`https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVin/${vin}?format=json`);
+  const { Results } = data;
+  const vehicle = Results.filter((obj) => obj.Variable === 'Make'
+  || obj.Variable === 'Model'
+  || obj.Variable === 'Model Year'
+  || obj.Variable === 'Fuel Type - Primary'
+  || obj.Variable === 'Fuel Type - Secondary');
+  let finalMessage = 'Here you have your car details! :car:\n';
+  for (let detail of vehicle) {
+    finalMessage += `${detail.Variable}: ${detail.Value}\n`
+  }
+  await say(finalMessage);
 });
 
 module.exports.handler = async (event, context, callback) => {
