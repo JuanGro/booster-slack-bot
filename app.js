@@ -17,15 +17,14 @@ const app = new App({
   processBeforeResponse: true
 });
 
-app.event('app_mention', ({ say }) => say('Hello!'))
+app.event('app_mention', ({ say }) => say(`Hello <@${message.user}> I\'m here to help you! :tada:`));
 
-// Listens to incoming messages that contain "hello"
-app.message('hello', async ({ message, say }) => {
-  await say(`Hello, <@${message.user}> :tada:`);
-});
+app.message('hello', async ({ message, say }) => say(`Hello <@${message.user}> :hand:`));
 
-app.message('goodbye', async ({ message, say }) => {
-  await say(`See ya later, <@${message.user}> :wave:`);
+app.message('goodbye', async ({ message, say }) => say(`Bye, <@${message.user}> :wave:`));
+
+app.message('VIN', async ({ say }) => {
+  await say(`I'm receiving a VIN :tada:`);
 });
 
 module.exports.handler = async (event, context, callback) => {

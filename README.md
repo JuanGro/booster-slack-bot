@@ -68,4 +68,4 @@ npm test
 
 The app is deployed in [AWS](https://aws.amazon.com) using [serverless](https://www.serverless.com).
 
-[Go to API](https://0ge7zy7kp8.execute-api.us-east-1.amazonaws.com/dev)
+[Go to API](https://ss49p1awi3.execute-api.us-east-1.amazonaws.com/dev/slack/events)
