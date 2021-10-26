@@ -1,17 +1,14 @@
-service: booster-slack-bot
-
+service: serverless-aws-lambda-receiver-bolt-js
+frameworkVersion: '2'
 provider:
   name: aws
-  runtime: nodejs14.x
-  stage: dev
-  region: us-east-1
-
+  runtime: nodejs12.x
 functions:
-  app:
-    handler: index.handler
+  slack:
+    handler: app.handler
     events:
-      - http: ANY /
-      - http: 'ANY {proxy+}'
-
+      - http:
+          path: slack/events
+          method: post
 plugins:
   - serverless-offline
