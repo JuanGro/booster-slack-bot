@@ -7,13 +7,15 @@ app.use(express.urlencoded({
   extended: true
 }));
 
-app.get('/', function (req, res) {
-  res.send('Hello World!');
+app.get('/api', function (req, res) {
+  res.send('API working!');
 });
 
 app.post('/slack/test-api', function (req, res) {
   try {
-    res.status(200).send(req.body.challenge);
+    const { challenge } = req.body;
+    console.log(challenge);
+    res.status(200).send(challenge);
   } catch (error) {
     res.status(500).send('Incorrect parameters');
   }
