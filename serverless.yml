@@ -1,4 +1,4 @@
-service: serverless-aws-lambda-receiver-bolt-js
+service: booster-slack-bot-node-lambda
 frameworkVersion: '2'
 provider:
   name: aws
